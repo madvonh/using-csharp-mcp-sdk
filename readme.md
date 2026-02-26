@@ -46,6 +46,16 @@ extension should probably be installed (it includes some other extensions):
 
 Then just hit `F5` to run the app.
 
+## MCP Inspector Troubleshooting
+
+If you can't connect to the MCP server from the Inspector, check the following:
+
+- Run only `CarvedRock-Aspire.AppHost` as startup. Do not run `CarvedRock.Mcp` separately at the same time.
+- In Inspector, use the HTTP transport option (`Streamable HTTP`) for this project.
+- Use the MCP server URL from the Aspire Dashboard resource endpoint for `mcp`.
+- If you see `Failed to bind to address ... :5072: address already in use`, another process is already using that port.
+  - Stop the duplicate run and keep only the AppHost session running.
+
 ## Data and EF Core Migrations
 
 The `dotnet ef` tool is used to manage EF Core migrations.  The following command was used to create migrations (from the `CarvedRock.Data` folder).
